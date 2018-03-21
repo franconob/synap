@@ -1,28 +1,46 @@
-.App {
-  text-align: center;
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: "search" "person" "messages";
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.person {
+    grid-area: person;
+    justify-content: flex-start;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.search {
+    grid-area: search;
 }
 
-.App-title {
-  font-size: 1.5em;
+.messages {
+    grid-area: messages;
 }
 
-.App-intro {
-  font-size: large;
+@media (min-width: 500px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "search messages" "person messages";
+    }
+
+    .person {
+        grid-row-start: 1;
+        margin-top: 50px;
+    }
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@media (min-width: 1000px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "person search" ". messages";
+    }
+
+    .person {
+        grid-row: 1 / span 2;
+        margin-top: 50px;
+    }
+
+    .wrapper div.messages {
+        margin-top: 50px;
+    }
 }

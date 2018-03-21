@@ -4,15 +4,16 @@ import withLoading from "./helpers/withLoading";
 
 const PersonDetail = ({ person }) => {
   if (!person) {
-    return <div>Select a message</div>;
+    return <div className="person">Select a message</div>;
+
   } else {
     return (
-      <div>
+      <div className="person">
         <Card>
           <Image src={person.avatar} />
           <Card.Content>
             <Card.Header>{person.name}</Card.Header>
-          </Card.Content>
+              </Card.Content>
           <Card.Content extra>
             <a>
               <Icon name="user" />
